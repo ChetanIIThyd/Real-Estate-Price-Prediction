@@ -1,0 +1,122 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Banglore Home Price Prediction</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Banglore Home Price Prediction</legend>
+        </h1>
+
+        <div class="img"></div>
+        <div class="form">
+            <h2>Area (Square Feet)</h2>
+            <input class="area floatLabel" type="text" id="uiSqft" name="total_sqft" value="1000">
+            <h2>BHK</h2>
+            <div class="switch-field">
+                <input type="radio" id="radio-bhk-1" name="BHK" value="1"/>
+                <label for="radio-bhk-1">1</label>
+                <input type="radio" id="radio-bhk-2" name="BHK" value="2" checked/>
+                <label for="radio-bhk-2">2</label>
+                <input type="radio" id="radio-bhk-3" name="BHK" value="3"/>
+                <label for="radio-bhk-3">3</label>
+                <input type="radio" id="radio-bhk-4" name="BHK" value="4"/>
+                <label for="radio-bhk-4">4</label>
+                <input type="radio" id="radio-bhk-5" name="BHK" value="5"/>
+                <label for="radio-bhk-5">5</label>
+            </div>
+        </div>
+        
+        <div class="form">
+            <h2>Bath</h2>
+            <div class="switch-field">
+                <input type="radio" id="radio-bath-1" name="bath" value="1"/>
+                <label for="radio-bath-1">1</label>
+                <input type="radio" id="radio-bath-2" name="bath" value="2" checked/>
+                <label for="radio-bath-2">2</label>
+                <input type="radio" id="radio-bath-3" name="bath" value="3"/>
+                <label for="radio-bath-3">3</label>
+                <input type="radio" id="radio-bath-4" name="bath" value="4"/>
+                <label for="radio-bath-4">4</label>
+                <input type="radio" id="radio-bath-5" name="bath" value="5"/>
+                <label for="radio-bath-5">5</label>
+            </div>
+        </div>
+
+        <h2>Location</h2>
+        <div>
+            <select class="location" name="location" id="uiLocations">
+                <option value="" disabled="disabled" selected="selected">Choose a Location</option>
+                <option value="8th phase jp nagar">8th Phase JP Nagar</option>
+                <option value="bannerghatta">Bannerghatta</option>
+                <option value="rajiv nagar">Rajiv Nagar</option>
+                <option value="kasavanhalli">Kasavanhalli</option>
+                <option value="kogilu">Kogilu</option>
+                <option value="cv raman nagar">CV Raman Nagar</option>
+                <option value="devarachikkanahalli">Devarachikkanahalli</option>
+                <option value="kaggalipura">Kaggalipura</option>
+                <option value="5th phase jp nagar">5th Phase JP Nagar</option>
+                <option value="hebbal">Hebbal</option>
+                <option value="nagavara">Nagavara</option>
+                <option value="itpl">ITPL</option>
+                <option value="battarahalli">Battarahalli</option>
+                <option value="vasanthapura">Vasanthapura</option>
+                <option value="garudachar palya">Garudachar Palya</option>
+                <option value="prithvi layout">Prithvi Layout</option>
+                <option value="sompura">Sompura</option>
+                <option value="subramanyapura">Subramanyapura</option>
+                <option value="nagavarapalya">Nagavarapalya</option>
+                <option value="banjara layout">Banjara Layout</option>
+                <option value="raja rajeshwari nagar">Raja Rajeshwari Nagar</option>
+                <option value="isro layout">ISRO Layout</option>
+                <option value="kadugodi">Kadugodi</option>
+                <option value="7th phase jp nagar">7th Phase JP Nagar</option>
+                <option value="channasandra">Channasandra</option>
+                <option value="panathur">Panathur</option>
+                <option value="karuna nagar">Karuna Nagar</option>
+                <option value="devanahalli">Devanahalli</option>
+                <option value="banashankari">Banashankari</option>
+                <option value="cunningham road">Cunningham Road</option>
+                <option value="doddaballapur">Doddaballapur</option>
+                <option value="5th block hbr layout">5th Block HBR Layout</option>
+                <option value="konanakunte">Konanakunte</option>
+                <option value="sarjapur road">Sarjapur Road</option>
+                <option value="doddakallasandra">Doddakallasandra</option>
+                <option value="abbigere">Abbigere</option>
+                <option value="lb shastri nagar">LB Shastri Nagar</option>
+                <option value="pai layout">Pai Layout</option>
+                <option value="hormavu">Hormavu</option>
+                <option value="shivaji nagar">Shivaji Nagar</option>
+                <option value="kaggadasapura">Kaggadasapura</option>
+                <option value="shampura">Shampura</option>
+                <option value="sonnenahalli">Sonnenahalli</option>
+                <option value="malleshwaram">Malleshwaram</option>
+                <option value="malleshpalya">Malleshpalya</option>
+                <option value="tindlu">Tindlu</option>
+                <option value="kambipura">Kambipura</option>
+                <option value="poorna pragna layout">Poorna Pragna Layout</option>
+                <option value="6th phase jp nagar">6th Phase JP Nagar</option>
+                <option value="1st block jayanagar">1st Block Jayanagar</option>
+                <option value="hal 2nd stage">HAL 2nd Stage</option>
+                <option value="tc palaya">TC Palaya</option>
+                <option value="binny pete">Binny Pete</option>
+                <option value="electronic city">Electronic City</option>
+                <option value="jigani">Jigani</option>
+                <option value="billekahalli">Billekahalli</option>
+                <option value="cox town">Cox Town</option>
+                <option value="sector 7 hsr layout">Sector 7 HSR Layout</option>
+                <option value="jakkur">Jakkur</option>
+                <option value="mahalakshmi layout">Mahalakshmi Layout</option>
+                <!-- Add other locations as needed -->
+            </select>
+        </div>
+
+        <button class="submit" onclick="results()" type="button">Estimate Price</button>
+        <div id="uiEstimatedPrice" class="result">
+            
+            <h2>The Prediction is {{results}}</h2>
+        </div>
+       </form>
+    </div>
+</body>
+</html>
